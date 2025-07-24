@@ -78,23 +78,6 @@ const AboutSectionEnhanced = () => {
             From the mines of the Democratic Republic of Congo to a global movement—this is the story 
             of re-centralising money where it belongs.
           </p>
-          
-          <div className="max-w-5xl mx-auto">
-            <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-12 border border-green-200">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">
-                Finance's{' '}
-                <button 
-                  onClick={openThirdWayPost}
-                  className="text-green-600 hover:text-blue-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit"
-                >
-                  Third Way
-                </button>
-              </h3>
-              <p className="text-xl text-gray-700 italic">
-                Rebalancing Influence, Ownership, and Value in the Digital Age
-              </p>
-            </div>
-          </div>
         </div>
 
         {/* Journey Section */}
@@ -141,6 +124,18 @@ const AboutSectionEnhanced = () => {
                           className="w-full h-64 object-cover rounded-lg shadow-md"
                         />
                         <p className="text-sm text-gray-500 italic mt-2 text-center">African Financial Innovation - SACCO, MTN, M-Pesa</p>
+                      </div>
+                    )}
+                    
+                    {/* Add image for Around the World story */}
+                    {index === 2 && (
+                      <div className="mb-6">
+                        <img 
+                          src={`${process.env.PUBLIC_URL}/Global Sacco 02.png`} 
+                          alt="Global Community Finance Network"
+                          className="w-full h-64 object-cover rounded-lg shadow-md"
+                        />
+                        <p className="text-sm text-gray-500 italic mt-2 text-center">Global Community Finance Network</p>
                       </div>
                     )}
                     

@@ -61,12 +61,13 @@ const Navigation = ({ clixPriceUSD, clixPriceXLM, xlmToUSD, activeSection, scrol
           
           <div className="hidden lg:flex items-center space-x-6">
             {[
-              { id: 'about', label: 'Movement' },
+              { id: 'about', label: 'The Movement' },
               { id: 'clix', label: 'CLIX' },
               { id: 'products', label: 'Solutions' },
               { id: 'clicbrain', label: 'ClicBrain' },
               { id: 'pryvaz', label: 'Privacy Vault' },
               { id: 'blog', label: 'Blog' },
+              { id: 'projects', label: 'Projects' },
               { id: 'partners', label: 'Partners' },
               { id: 'contact', label: 'Connect' }
             ].map((item) => (

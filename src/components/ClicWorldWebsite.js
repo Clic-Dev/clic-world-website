@@ -6,6 +6,7 @@ import ClixSection from './ClixSection';
 import PrivacySectionEnhanced from './PrivacySectionEnhanced';
 import ClicBrainSection from './ClicBrainSection';
 import BlogSection from './BlogSection';
+import ProjectsSection from './ProjectsSection';
 import AboutSectionEnhanced from './AboutSectionEnhanced';
 import PartnersSection from './PartnersSection';
 import ContactSection from './ContactSection';
@@ -79,7 +80,7 @@ const ClicWorldWebsite = () => {
         return;
       }
       
-      const sections = ['home', 'about', 'clix', 'products', 'clicbrain', 'pryvaz', 'blog', 'partners', 'contact'];
+      const sections = ['home', 'about', 'clix', 'products', 'clicbrain', 'pryvaz', 'blog', 'projects', 'partners', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -175,6 +176,10 @@ const ClicWorldWebsite = () => {
         
         <section id="blog">
           <BlogSection />
+        </section>
+        
+        <section id="projects">
+          <ProjectsSection />
         </section>
         
         <section id="partners">
