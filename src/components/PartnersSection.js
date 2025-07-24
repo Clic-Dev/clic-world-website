@@ -195,17 +195,6 @@ const PartnersSection = () => {
             </div>
           </div>
         </div>
-
-        {/* Partner CTA */}
-        <div className="text-center mt-16">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Interested in Partnership?</h3>
-          <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-            Join our ecosystem of forward-thinking organizations building the future of community-owned finance.
-          </p>
-          <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
-            Explore Partnerships
-          </button>
-        </div>
       </div>
     </section>
   );

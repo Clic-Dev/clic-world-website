@@ -4,62 +4,33 @@ const HeroSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD, scrollToSection }) 
   return (
     <section id="home" className="bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 min-h-screen flex items-center relative overflow-hidden pt-32">
       <div className="container mx-auto px-4">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div className="text-white">
-            <h1 className="text-4xl font-extrabold leading-tight mb-6">
-              We're not disrupting finance.<br />
-              <span className="text-white">We're upgrading it.</span>
-            </h1>
-            
-            <p className="text-xl mb-8 text-white/90 leading-relaxed">
-              Money re-centralised where it belongs – in the hands of those who build real value. 
-              Community-owned finance powered by responsible AI and the blockchain, ready to serve 500 million cooperative 
-              members across Africa and the World.
-            </p>
-
-            {/* Enhanced Live Stats with Dual Pricing */}
-            <div className="grid md:grid-cols-2 gap-4 mb-8">
-              {/* CLIX USD Price */}
-              <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
-                <div className="text-2xl mb-1">💎</div>
-                <div className="text-2xl font-bold text-yellow-400">
-                  {clixPriceUSD ? `$${clixPriceUSD}` : 'N/A'}
-                </div>
-                <div className="text-sm text-white/80">CLIX Token Price (USD)</div>
-              </div>
+        {/* Main Hero Content */}
+        <div className="grid lg:grid-cols-5 gap-8 items-start">
+          {/* Left Content - 3/5 width */}
+          <div className="lg:col-span-3 text-white space-y-8">
+            <div>
+              <h1 className="text-4xl font-extrabold leading-tight mb-6">
+                We're not disrupting finance.<br />
+                <span className="text-white">We're upgrading it.</span>
+              </h1>
               
-              {/* CLIX XLM Price */}
-              <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
-                <div className="text-2xl mb-1">💫</div>
-                <div className="text-2xl font-bold text-blue-300">
-                  {clixPriceXLM ? `${clixPriceXLM}` : 'N/A'}
-                </div>
-                <div className="text-sm text-white/80">CLIX Price (XLM)</div>
-                {xlmToUSD && (
-                  <div className="text-xs text-white/60 mt-1">
-                    XLM/USD: ${xlmToUSD}
-                  </div>
-                )}
-              </div>
-              
-              {/* Community Stats */}
-              <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
-                <div className="text-2xl mb-1">📈</div>
-                <div className="text-2xl font-bold text-yellow-400">90%+</div>
-                <div className="text-sm text-white/80">Community Bank Repayment Rate</div>
-              </div>
-              
-              <div className="bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20">
-                <div className="text-2xl mb-1">🏘️</div>
-                <div className="text-2xl font-bold text-yellow-400">500M</div>
-                <div className="text-sm text-white/80">African Cooperative Members</div>
+              <div className="text-white/90 leading-relaxed space-y-4">
+                <p className="text-xl">
+                  Money re-centralised where it belongs – in the hands of those who build real value. 
+                  Community-owned finance powered by responsible AI and the blockchain, ready to serve 500 million cooperative 
+                  members across Africa and the World.
+                </p>
+                
+                <p className="text-lg">
+                  We're bridging the gap between <strong className="text-white">traditional finance</strong> and <strong className="text-white">digital innovation</strong>—tokenising real assets (gold, bonds, commodities) for everyday use, while keeping communities in control of their wealth.
+                </p>
               </div>
             </div>
           </div>
 
-          {/* Hero Image */}
-          <div className="relative flex items-end justify-center">
-            <div className="relative w-full h-[400px] rounded-2xl overflow-hidden shadow-2xl">
+          {/* Right Image - 2/5 width */}
+          <div className="lg:col-span-2 relative">
+            <div className="relative w-full h-[350px] rounded-2xl overflow-hidden shadow-2xl">
               <img 
                 src={`${process.env.PUBLIC_URL}/community-group.jpg`} 
                 alt="Community collaboration and digital engagement"
@@ -69,6 +40,55 @@ const HeroSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD, scrollToSection }) 
               <div className="absolute bottom-6 left-6 text-white">
                 <div className="text-lg font-semibold mb-1">Building Tomorrow</div>
                 <div className="text-sm opacity-90">Community-Focussed Finance</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        {/* Detailed Information Sections */}
+        <div className="mt-8 grid lg:grid-cols-5 gap-8 text-white">
+          {/* How It Works - 3/5 width to align with text above */}
+          <div className="lg:col-span-3 space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-4">HOW IT WORKS:</h3>
+              <div className="space-y-3 text-base">
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold">✔</span>
+                  <div><strong>Tokenized Assets</strong> – Gold, silver, and bonds traded on Stellar SDEX.</div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold">✔</span>
+                  <div><strong>Spendable Yield</strong> – Earn interest on stable stores of value, then pay merchants directly.</div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold">✔</span>
+                  <div><strong>Community-Powered</strong> – Community Social Banks (CSB's) like SACCOs & Stokvel groups pool funds, lend internally, and keep profits circulating locally.</div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-400 font-bold">✔</span>
+                  <div><strong>Bank-Integrated</strong> – Seamless on/off ramps via mobile money, bank transfers, and merchant payouts.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Key Differentiators - 2/5 width to align with image above */}
+          <div className="lg:col-span-2 space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold text-yellow-400 mb-4">KEY DIFFERENTIATORS:</h3>
+              <div className="space-y-3 text-base">
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-300 font-bold">→</span>
+                  <div><strong>Not DeFi Speculation</strong> – Backed by auditable real-world assets.</div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-300 font-bold">→</span>
+                  <div><strong>Not Extraction</strong> – Profits stay with communities, not platforms.</div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-300 font-bold">→</span>
+                  <div><strong>Not Complex</strong> – Spend gold like cash, with no technical friction.</div>
+                </div>
               </div>
             </div>
           </div>

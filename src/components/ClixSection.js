@@ -34,30 +34,30 @@ const ClixSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD }) => {
 
   const tokenomics = [
     {
-      percentage: "40%",
-      label: "Community Rewards",
-      description: "Directly benefiting ecosystem participants",
+      percentage: "50%",
+      label: "Community Projects",
+      description: "Direct investment in local economic development projects",
       color: "bg-green-100",
       textColor: "text-green-700"
     },
     {
-      percentage: "25%",
-      label: "Green Projects",
-      description: "Sustainable development initiatives",
+      percentage: "10%",
+      label: "Community Mining",
+      description: "Community mine CLIX through eco-system participation (loyalty points)",
       color: "bg-blue-100",
       textColor: "text-blue-700"
     },
     {
-      percentage: "20%",
-      label: "Development",
-      description: "Platform enhancement and innovation",
+      percentage: "35%",
+      label: "Eco-System Reserve",
+      description: "Ensuring eco-system sustainability with option of 5% public sale",
       color: "bg-purple-100",
       textColor: "text-purple-700"
     },
     {
-      percentage: "15%",
-      label: "Team & Reserves",
-      description: "Long-term sustainability and operations",
+      percentage: "5%",
+      label: "Team & Advisors",
+      description: "Long-term sustainability and operational funding",
       color: "bg-orange-100",
       textColor: "text-orange-700"
     }
@@ -207,7 +207,19 @@ const ClixSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD }) => {
         {/* Token Economics */}
         <div className="mb-20">
           <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Token Economics</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">
+              <a 
+                href="#whitepaper" 
+                className="text-gray-900 hover:text-blue-700 underline transition-colors cursor-pointer"
+                onClick={(e) => {
+                  e.preventDefault();
+                  // TODO: Replace with actual white paper link
+                  alert('White Paper coming soon!');
+                }}
+              >
+                Token Economics & White Paper
+              </a>
+            </h3>
             <p className="text-xl text-gray-600">
               <strong className="text-gray-900">10 Billion CLIX</strong> total supply distributed for maximum community benefit
             </p>
