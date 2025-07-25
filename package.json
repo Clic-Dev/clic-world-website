@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "Clic.World Website - Building tomorrow through community-owned finance",
   "main": "src/index.js",
-  "homepage": "https://clicworld-andre.github.io/clic-world-website",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
