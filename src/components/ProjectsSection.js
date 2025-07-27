@@ -7,21 +7,24 @@ const ProjectsSection = () => {
       title: 'Isiolo AgriMining Project',
       description: 'A community development project with gold mining, Moringa and Livestock',
       image: `${process.env.PUBLIC_URL}/project-isiolo.jpg`,
-      location: 'Isiolo, Kenya'
+      location: 'Isiolo, Kenya',
+      status: 'Ready for Investment'
     },
     {
       id: 'nucare-coffee',
       title: 'NuCare Coffee Project',
       description: 'A women focused coffee cooperative project with Social Banking',
       image: `${process.env.PUBLIC_URL}/project-coffee.jpg`,
-      location: 'Kenya'
+      location: 'Kenya',
+      status: 'Under Evaluation'
     },
     {
       id: 'owino-market',
       title: 'Owino Market Project',
       description: 'A merchant cooperative project with online marketplace',
       image: `${process.env.PUBLIC_URL}/project-market.jpg`,
-      location: 'Kampala, Uganda'
+      location: 'Kampala, Uganda',
+      status: 'Pilot Implementation'
     }
   ];
 
@@ -102,11 +105,10 @@ const ProjectsSection = () => {
 
               {/* Status Indicator */}
               <div className="bg-gray-50 px-6 py-3 border-t border-gray-100">
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-gray-500">Status:</span>
+                <div className="flex items-center justify-center text-sm">
                   <span className="flex items-center">
-                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                    <span className="text-green-600 font-medium">Active</span>
+                    <div className="w-2 h-2 bg-orange-500 rounded-full mr-2"></div>
+                    <span className="text-orange-600 font-medium">{project.status}</span>
                   </span>
                 </div>
               </div>
