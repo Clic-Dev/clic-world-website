@@ -1,0 +1,22 @@
+ACCOUNTS = []
+VERSION = "0.1.0"
+NETWORK_PASSPHRASE="Public Global Stellar Network ; September 2015"
+SIGNING_KEY = "GD5NUMEX7LYHXGXCAD4PGW7JDMOUY2DKRGY5XZHJS5IONVHDKCJYGVCL"
+
+WEB_AUTH_ENDPOINT = "https://api.clic.world/auth"
+TRANSFER_SERVER_SEP0024 = "https://api.clic.world/sep24"
+
+[[CURRENCIES]]
+code="CLIX"
+issuer="GBCJSKXTZX5CYKJGBGQPYEATLSGR4EPRUOL7EKIDCDOZ4UC67BBQRCSO"
+is_asset_anchored=false
+name="CLIX Token"
+desc="CLIX is a utility token issued by CLIC.world, designed to power digital financial services and transactions within the CLIC ecosystem."
+image="https://clic.world/assets/images/clix-token-logo.png"
+
+[DOCUMENTATION]
+ORG_NAME = "CLIC.world"
+ORG_URL = "https://clic.world"
+ORG_DESCRIPTION = "CLIC.world is a fintech company providing innovative digital financial services and solutions."
+ORG_LOGO="https://clic.world/assets/images/clic-logo.png"
+ORG_SUPPORT_EMAIL="support@clic.world"
