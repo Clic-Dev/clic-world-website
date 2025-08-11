@@ -12,7 +12,7 @@ const ProjectsSection = () => {
     },
     {
       id: 'nucare-coffee',
-      title: 'NuCare Coffee Project',
+      title: 'NewCares Coffee Project',
       description: 'A women focused coffee cooperative project with Social Banking',
       image: `${process.env.PUBLIC_URL}/project-coffee.jpg`,
       location: 'Kenya',

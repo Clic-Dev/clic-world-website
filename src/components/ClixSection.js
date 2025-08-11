@@ -209,13 +209,10 @@ const ClixSection = ({ clixPriceUSD, clixPriceXLM, xlmToUSD }) => {
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-6">
               <a 
-                href="#whitepaper" 
+                href="https://clix-token.s3.us-east-1.amazonaws.com/CLIX+Token+Whitepaper+B.1.3.2.pdf" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="text-gray-900 hover:text-blue-700 underline transition-colors cursor-pointer"
-                onClick={(e) => {
-                  e.preventDefault();
-                  // TODO: Replace with actual white paper link
-                  alert('White Paper coming soon!');
-                }}
               >
                 Token Economics & White Paper
               </a>
