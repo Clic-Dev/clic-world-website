@@ -1,10 +1,28 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
     <footer className="bg-gray-900 text-white py-12">
       <div className="container mx-auto px-4">
         <div className="text-center">
+          {/* Privacy Policy and Terms of Service Links */}
+          <div className="flex justify-center space-x-6 mb-6">
+            <Link 
+              to="/privacy-policy" 
+              className="text-gray-400 hover:text-white transition-colors text-sm"
+            >
+              Privacy Policy
+            </Link>
+            <span className="text-gray-600">|</span>
+            <Link 
+              to="/terms-of-service" 
+              className="text-gray-400 hover:text-white transition-colors text-sm"
+            >
+              Terms of Service
+            </Link>
+          </div>
+          
           {/* Social Media Links */}
           <div className="flex justify-center space-x-6 mb-6">
             {/* GitHub */}

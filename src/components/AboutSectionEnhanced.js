@@ -91,59 +91,57 @@ const AboutSectionEnhanced = () => {
             </p>
           </div>
 
-          <div className="space-y-8 max-w-4xl mx-auto">
+          <div className="grid lg:grid-cols-3 gap-8">
             {journey.map((step, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-                <div className="flex items-start">
-                  <div className="bg-green-100 rounded-full p-3 mr-6 mt-1 min-w-[3rem]">
+              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 flex flex-col">
+                <div className="flex items-start mb-4">
+                  <div className="bg-green-100 rounded-full p-3 mr-4 mt-1 min-w-[3rem]">
                     <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
                       {index + 1}
                     </div>
                   </div>
-                  <div className="flex-1">
-                    <h4 className="text-xl font-bold text-gray-900 mb-2">{step.location}</h4>
-                    
-                    {/* Add image for DRC story */}
-                    {index === 0 && (
-                      <div className="mb-6">
-                        <img 
-                          src={`${process.env.PUBLIC_URL}/artisanal-gold-miners.jpg`} 
-                          alt="Artisanal Gold Miners"
-                          className="w-full h-64 object-cover rounded-lg shadow-md"
-                        />
-                        <p className="text-sm text-gray-500 italic mt-2 text-center">Artisanal Gold Miners</p>
-                      </div>
-                    )}
-                    
-                    {/* Add image for Africa story */}
-                    {index === 1 && (
-                      <div className="mb-6">
-                        <img 
-                          src={`${process.env.PUBLIC_URL}/sacco-mtn-mpesa.png`} 
-                          alt="African Financial Innovation - SACCO, MTN, M-Pesa"
-                          className="w-full h-64 object-cover rounded-lg shadow-md"
-                        />
-                        <p className="text-sm text-gray-500 italic mt-2 text-center">African Financial Innovation - SACCO, MTN, M-Pesa</p>
-                      </div>
-                    )}
-                    
-                    {/* Add image for Around the World story */}
-                    {index === 2 && (
-                      <div className="mb-6">
-                        <img 
-                          src={`${process.env.PUBLIC_URL}/Global Sacco 02.png`} 
-                          alt="Global Community Finance Network"
-                          className="w-full h-64 object-cover rounded-lg shadow-md"
-                        />
-                        <p className="text-sm text-gray-500 italic mt-2 text-center">Global Community Finance Network</p>
-                      </div>
-                    )}
-                    
-                    <p className="text-gray-700 mb-4 leading-relaxed">{step.story}</p>
-                    <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-                      <p className="text-green-800 font-semibold italic">"{step.insight}"</p>
-                    </div>
+                  <h4 className="text-xl font-bold text-gray-900">{step.location}</h4>
+                </div>
+                
+                {/* Add image for DRC story */}
+                {index === 0 && (
+                  <div className="mb-4">
+                    <img 
+                      src={`${process.env.PUBLIC_URL}/artisanal-gold-miners.jpg`} 
+                      alt="Artisanal Gold Miners"
+                      className="w-full h-48 object-cover rounded-lg shadow-md"
+                    />
+                    <p className="text-sm text-gray-500 italic mt-2 text-center">Artisanal Gold Miners</p>
                   </div>
+                )}
+                
+                {/* Add image for Africa story */}
+                {index === 1 && (
+                  <div className="mb-4">
+                    <img 
+                      src={`${process.env.PUBLIC_URL}/sacco-mtn-mpesa.png`} 
+                      alt="African Financial Innovation - SACCO, MTN, M-Pesa"
+                      className="w-full h-48 object-cover rounded-lg shadow-md"
+                    />
+                    <p className="text-sm text-gray-500 italic mt-2 text-center">African Financial Innovation - SACCO, MTN, M-Pesa</p>
+                  </div>
+                )}
+                
+                {/* Add image for Around the World story */}
+                {index === 2 && (
+                  <div className="mb-4">
+                    <img 
+                      src={`${process.env.PUBLIC_URL}/Global Sacco 02.png`} 
+                      alt="Global Community Finance Network"
+                      className="w-full h-48 object-cover rounded-lg shadow-md"
+                    />
+                    <p className="text-sm text-gray-500 italic mt-2 text-center">Global Community Finance Network</p>
+                  </div>
+                )}
+                
+                <p className="text-gray-700 mb-4 leading-relaxed flex-grow">{step.story}</p>
+                <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
+                  <p className="text-green-800 font-semibold italic text-sm">"{step.insight}"</p>
                 </div>
               </div>
             ))}
@@ -213,6 +211,67 @@ const AboutSectionEnhanced = () => {
         <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200 text-center">
           <p className="text-xl font-semibold text-gray-800 mb-2">The old system falls short. We're the rewrite.</p>
           <p className="text-lg font-bold text-blue-600">Born in Africa. Built for the world.</p>
+        </div>
+
+        {/* How It Works & Key Differentiators */}
+        <div className="mt-20 mb-20">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* How It Works */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">HOW IT WORKS</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-green-500 font-bold text-2xl mt-1">✔</span>
+                  <div>
+                    <strong className="text-gray-900 text-lg">Tokenized Assets</strong> – Gold, silver, and bonds traded on Stellar SDEX.
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-500 font-bold text-2xl mt-1">✔</span>
+                  <div>
+                    <strong className="text-gray-900 text-lg">Spendable Yield</strong> – Earn interest on stable stores of value, then pay merchants directly.
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-500 font-bold text-2xl mt-1">✔</span>
+                  <div>
+                    <strong className="text-gray-900 text-lg">Community-Powered</strong> – Community Social Banks (CSB's) like SACCOs & Stokvel groups pool funds, lend internally, and keep profits circulating locally.
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-green-500 font-bold text-2xl mt-1">✔</span>
+                  <div>
+                    <strong className="text-gray-900 text-lg">Bank-Integrated</strong> – Seamless on/off ramps via mobile money, bank transfers, and merchant payouts.
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            {/* Key Differentiators */}
+            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
+              <h3 className="text-3xl font-bold text-gray-900 mb-6">KEY DIFFERENTIATORS</h3>
+              <div className="space-y-4">
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-600 font-bold text-2xl mt-1">→</span>
+                  <div>
+                    <strong className="text-gray-900 text-lg">Not DeFi Speculation</strong> – Backed by auditable real-world assets.
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-600 font-bold text-2xl mt-1">→</span>
+                  <div>
+                    <strong className="text-gray-900 text-lg">Not Extraction</strong> – Profits stay with communities, not platforms.
+                  </div>
+                </div>
+                <div className="flex items-start gap-3">
+                  <span className="text-blue-600 font-bold text-2xl mt-1">→</span>
+                  <div>
+                    <strong className="text-gray-900 text-lg">Not Complex</strong> – Spend gold like cash, with no technical friction.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
       
