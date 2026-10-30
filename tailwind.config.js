@@ -7,6 +7,39 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Redesign palette — brand blue sampled from the CLIC logo (#00499C)
+        navy: {
+          700: '#183064',
+          800: '#10224A',
+          900: '#0A1733',
+          950: '#060F24'
+        },
+        brand: {
+          50: '#EEF4FC',
+          100: '#D7E5F7',
+          200: '#AFCBEF',
+          300: '#7DA9E2',
+          400: '#3F7FD0',
+          500: '#1462BC',
+          600: '#00499C',
+          700: '#003B80',
+          800: '#062F63',
+          900: '#0A2448'
+        },
+        gold: {
+          300: '#F3CB6B',
+          400: '#E8B33A',
+          500: '#E0A21B',
+          600: '#B9820E'
+        },
+        paper: '#F5F7FA',
+        // Token allocation chart (validated categorical order)
+        chart: {
+          1: '#1F5FB8',
+          2: '#E0A21B',
+          3: '#1A9E8A',
+          4: '#7A5BC7'
+        },
         'clic-green': {
           50: '#d1fae5',
           100: '#a7f3d0',
@@ -45,6 +78,7 @@ module.exports = {
         }
       },
       fontFamily: {
+        'display': ['"Plus Jakarta Sans"', 'Inter', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         'sans': ['Inter', 'ui-sans-serif', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'sans-serif'],
       },
       animation: {

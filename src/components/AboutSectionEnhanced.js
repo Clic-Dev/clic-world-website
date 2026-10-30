@@ -1,41 +1,44 @@
 import React, { useState } from 'react';
+import { ArrowRight, Check, Gem, Globe2, HeartHandshake, School, Trophy, Users } from 'lucide-react';
 import { blogPosts } from '../data/blogPosts';
 import BlogPostModal from './BlogPostModal';
+import { Container, IconBadge, Reveal, SectionHeader, StoryTitle, blockSpacing, sectionPadding } from './ui';
 
 const AboutSectionEnhanced = () => {
   // Modal state for "Decentralized Money" blog post
   const [selectedPost, setSelectedPost] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  
+
   // Find the "Third Way" blog post
   const thirdWayPost = blogPosts.find(post => post.slug === 'clic-world-vision-finance-third-way');
-  
+
   const openThirdWayPost = () => {
     if (thirdWayPost) {
       setSelectedPost(thirdWayPost);
       setIsModalOpen(true);
     }
   };
-  
+
   const closeModal = () => {
     setIsModalOpen(false);
     setSelectedPost(null);
   };
+
   const principles = [
     {
-      icon: "💎",
+      icon: Gem,
       title: "Value Flows to Creators",
       description: "Those who create value receive it, not just those who extract it from others.",
       highlight: "From mining communities to global communities"
     },
     {
-      icon: "🤝",
+      icon: HeartHandshake,
       title: "Belonging Means Ownership",
       description: "Community members own assets, participate in decisions, and shape their financial futures.",
       highlight: "Not just users—shareholders"
     },
     {
-      icon: "🌍",
+      icon: Globe2,
       title: "Digital Feels Human",
       description: "Technology that connects people, builds inclusion, and creates authentic relationships.",
       highlight: "Connected, inclusive, alive"
@@ -46,242 +49,205 @@ const AboutSectionEnhanced = () => {
     {
       location: "Democratic Republic of Congo",
       story: "In the mining communities of North Kivu province, we witnessed value creators receiving only 30% of what their work was worth.",
-      insight: "The fundamental problem became crystal clear"
+      insight: "The fundamental problem became crystal clear",
+      image: "artisanal-gold-miners.jpg",
+      caption: "Artisanal Gold Miners"
     },
     {
       location: "Across Africa",
       story: "We saw innovation like Mobile Money, SACCOS, Stokvels and Chamas thriving against all odds, where community is the engine and the future is rewritten daily.",
-      insight: "Community-powered innovation"
+      insight: "Community-powered innovation",
+      image: "sacco-mtn-mpesa.png",
+      caption: "African Financial Innovation - SACCO, MTN, M-Pesa"
     },
     {
-      location: "Around the World", 
+      location: "Around the World",
       story: "This movement was never meant to stay within borders. We're building for communities everywhere.",
-      insight: "Born in Africa. Built for the world."
+      insight: "Born in Africa. Built for the world.",
+      image: "Global Sacco 02.png",
+      caption: "Global Community Finance Network"
     }
   ];
 
+  const visionPoints = [
+    { icon: Trophy, title: "Gold Earns Yield", text: "Value that grows over time" },
+    { icon: School, title: "Bonds Fund Schools", text: "Investment with purpose" },
+    { icon: Users, title: "Communities Own", text: "Shareholders, not just users" }
+  ];
+
+  const howItWorks = [
+    { title: "Tokenized Assets", text: "Gold, silver, and bonds traded on Stellar SDEX." },
+    { title: "Spendable Yield", text: "Earn interest on stable stores of value, then pay merchants directly." },
+    { title: "Community-Powered", text: "Community Social Banks (CSB's) like SACCOs & Stokvel groups pool funds, lend internally, and keep profits circulating locally." },
+    { title: "Bank-Integrated", text: "Seamless on/off ramps via mobile money, bank transfers, and merchant payouts." }
+  ];
+
+  const differentiators = [
+    { title: "Not DeFi Speculation", text: "Backed by auditable real-world assets." },
+    { title: "Not Extraction", text: "Profits stay with communities, not platforms." },
+    { title: "Not Complex", text: "Spend gold like cash, with no technical friction." }
+  ];
+
   return (
-    <section id="about" className="py-8 bg-gray-50">
-      <div className="container mx-auto px-4">
-        
-        {/* Hero Section */}
-        <div className="text-center mb-20">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            <button 
-              onClick={openThirdWayPost} 
-              className="text-gray-900 hover:text-blue-700 underline transition-colors cursor-pointer bg-transparent border-none p-0 font-inherit text-inherit leading-inherit"
-            >
-              Clic.World: A Movement Without Borders
-            </button>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-            From the mines of the Democratic Republic of Congo to a global movement—this is the story 
-            of re-centralising money where it belongs.
-          </p>
-        </div>
+    <div className="bg-white">
+      <Container className={sectionPadding}>
+
+        {/* Intro */}
+        <Reveal>
+          <SectionHeader
+            eyebrow="The Movement"
+            title={
+              <StoryTitle onClick={openThirdWayPost}>
+                Clic.World: A Movement Without Borders
+              </StoryTitle>
+            }
+            description="From the mines of the Democratic Republic of Congo to a global movement—this is the story of re-centralising money where it belongs."
+          />
+        </Reveal>
 
         {/* Journey Section */}
-        <div className="mb-20">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              The Awakening Journey
-            </h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Our movement began with a simple realization: those creating the most value were receiving the least
-            </p>
-          </div>
+        <div className={blockSpacing}>
+          <Reveal>
+            <SectionHeader
+              level={3}
+              title="The Awakening Journey"
+              description="Our movement began with a simple realization: those creating the most value were receiving the least"
+            />
+          </Reveal>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <ol className="mt-16 grid gap-16 md:grid-cols-3 md:gap-8 lg:gap-12">
             {journey.map((step, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-200 flex flex-col">
-                <div className="flex items-start mb-4">
-                  <div className="bg-green-100 rounded-full p-3 mr-4 mt-1 min-w-[3rem]">
-                    <div className="w-6 h-6 bg-green-600 rounded-full flex items-center justify-center text-white text-sm font-bold">
-                      {index + 1}
-                    </div>
+              <Reveal as="li" key={step.location} delay={index * 0.08} className="flex flex-col">
+                <figure>
+                  <div className="aspect-[4/3] overflow-hidden rounded-2xl bg-slate-100">
+                    <img
+                      src={`${process.env.PUBLIC_URL}/${step.image}`}
+                      alt={step.caption}
+                      loading="lazy"
+                      className="h-full w-full object-cover"
+                    />
                   </div>
-                  <h4 className="text-xl font-bold text-gray-900">{step.location}</h4>
+                  <figcaption className="mt-3 text-xs text-slate-500">{step.caption}</figcaption>
+                </figure>
+
+                <div className="mt-7 flex items-center gap-3">
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-navy-900 text-sm font-semibold text-white">
+                    {index + 1}
+                  </span>
+                  <h4 className="font-display text-xl font-bold text-navy-900">{step.location}</h4>
                 </div>
-                
-                {/* Add image for DRC story */}
-                {index === 0 && (
-                  <div className="mb-4">
-                    <img 
-                      src={`${process.env.PUBLIC_URL}/artisanal-gold-miners.jpg`} 
-                      alt="Artisanal Gold Miners"
-                      className="w-full h-48 object-cover rounded-lg shadow-md"
-                    />
-                    <p className="text-sm text-gray-500 italic mt-2 text-center">Artisanal Gold Miners</p>
-                  </div>
-                )}
-                
-                {/* Add image for Africa story */}
-                {index === 1 && (
-                  <div className="mb-4">
-                    <img 
-                      src={`${process.env.PUBLIC_URL}/sacco-mtn-mpesa.png`} 
-                      alt="African Financial Innovation - SACCO, MTN, M-Pesa"
-                      className="w-full h-48 object-cover rounded-lg shadow-md"
-                    />
-                    <p className="text-sm text-gray-500 italic mt-2 text-center">African Financial Innovation - SACCO, MTN, M-Pesa</p>
-                  </div>
-                )}
-                
-                {/* Add image for Around the World story */}
-                {index === 2 && (
-                  <div className="mb-4">
-                    <img 
-                      src={`${process.env.PUBLIC_URL}/Global Sacco 02.png`} 
-                      alt="Global Community Finance Network"
-                      className="w-full h-48 object-cover rounded-lg shadow-md"
-                    />
-                    <p className="text-sm text-gray-500 italic mt-2 text-center">Global Community Finance Network</p>
-                  </div>
-                )}
-                
-                <p className="text-gray-700 mb-4 leading-relaxed flex-grow">{step.story}</p>
-                <div className="bg-green-50 p-4 rounded-lg border-l-4 border-green-500">
-                  <p className="text-green-800 font-semibold italic text-sm">"{step.insight}"</p>
-                </div>
-              </div>
+
+                <p className="mt-4 flex-grow leading-relaxed text-slate-600">{step.story}</p>
+                <p className="mt-6 border-l-2 border-gold-500 pl-4 text-sm font-medium italic text-navy-800">
+                  "{step.insight}"
+                </p>
+              </Reveal>
             ))}
-          </div>
+          </ol>
         </div>
 
         {/* Core Principles */}
-        <div className="mb-20">
-          <div className="text-center mb-16">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
-              Building an Economy That Works
-            </h3>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              We're creating a financial system where communities thrive, not just survive
-            </p>
-          </div>
+        <Reveal className={blockSpacing}>
+          <div className="rounded-[2rem] bg-paper px-6 py-16 sm:px-12 lg:px-16 lg:py-20">
+            <SectionHeader
+              level={3}
+              title="Building an Economy That Works"
+              description="We're creating a financial system where communities thrive, not just survive"
+            />
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {principles.map((principle, index) => (
-              <div key={index} className="bg-white p-8 rounded-2xl shadow-lg border border-gray-200 text-center hover:shadow-xl transition-shadow">
-                <div className="text-4xl mb-4">{principle.icon}</div>
-                <h4 className="text-xl font-bold text-gray-900 mb-4">{principle.title}</h4>
-                <p className="text-gray-600 mb-4 leading-relaxed">{principle.description}</p>
-                <div className="bg-blue-50 p-3 rounded-lg border border-blue-200">
-                  <p className="text-blue-800 font-semibold text-sm">{principle.highlight}</p>
+            <div className="mt-14 grid gap-12 md:grid-cols-3 md:gap-0 md:divide-x md:divide-slate-200">
+              {principles.map((principle) => (
+                <div key={principle.title} className="md:px-8 lg:px-10 md:first:pl-0 md:last:pr-0">
+                  <IconBadge icon={principle.icon} tone="white" size="lg" />
+                  <h4 className="mt-6 font-display text-xl font-bold text-navy-900">{principle.title}</h4>
+                  <p className="mt-3 leading-relaxed text-slate-600">{principle.description}</p>
+                  <p className="mt-5 text-sm font-semibold text-brand-700">{principle.highlight}</p>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
+        </Reveal>
 
         {/* Vision Statement */}
-        <div className="text-center mb-12">
-          <h3 className="text-3xl font-bold text-gray-900 mb-6">We're Not Disrupting Finance</h3>
-          <p className="text-xl text-gray-600 mb-16 max-w-3xl mx-auto leading-relaxed">
-            We're upgrading it—with accountability, yield, and teeth. 
-            Imagine a world where money doesn't just hold value—it creates it.
-          </p>
-        </div>
-        
-        <div className="grid md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-all">
-            <div className="bg-yellow-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-              <span className="text-3xl">🏆</span>
+        <Reveal className={blockSpacing}>
+          <div className="relative overflow-hidden rounded-[2rem] bg-navy-900 px-6 py-16 text-white sm:px-12 lg:px-16 lg:py-20">
+            <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-24 h-80 w-80 rounded-full bg-brand-500/30 blur-3xl" />
+            <div className="relative grid gap-12 lg:grid-cols-12 lg:items-center lg:gap-16">
+              <div className="lg:col-span-5">
+                <h3 className="font-display text-3xl font-bold tracking-tight sm:text-4xl">We're Not Disrupting Finance</h3>
+                <p className="mt-6 text-lg leading-relaxed text-white/70">
+                  We're upgrading it—with accountability, yield, and teeth.
+                  Imagine a world where money doesn't just hold value—it creates it.
+                </p>
+              </div>
+
+              <ul className="divide-y divide-white/10 lg:col-span-6 lg:col-start-7">
+                {visionPoints.map((point) => (
+                  <li key={point.title} className="flex items-center gap-5 py-5 first:pt-0 last:pb-0">
+                    <IconBadge icon={point.icon} tone="dark" />
+                    <div>
+                      <h4 className="font-display text-lg font-bold">{point.title}</h4>
+                      <p className="mt-0.5 text-white/60">{point.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4">Gold Earns Yield</h4>
-            <p className="text-gray-600">Value that grows over time</p>
-          </div>
-          
-          <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-all">
-            <div className="bg-blue-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-              <span className="text-3xl">🏫</span>
+
+            <div className="relative mt-14 flex flex-col gap-2 border-t border-white/10 pt-8 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-lg font-semibold">The old system falls short. We're the rewrite.</p>
+              <p className="text-lg font-semibold text-gold-400">Born in Africa. Built for the world.</p>
             </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4">Bonds Fund Schools</h4>
-            <p className="text-gray-600">Investment with purpose</p>
           </div>
-          
-          <div className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-all">
-            <div className="bg-gray-100 rounded-full w-20 h-20 flex items-center justify-center mx-auto mb-6">
-              <span className="text-3xl">👥</span>
-            </div>
-            <h4 className="text-xl font-bold text-gray-900 mb-4">Communities Own</h4>
-            <p className="text-gray-600">Shareholders, not just users</p>
-          </div>
-        </div>
-        
-        <div className="bg-blue-50 rounded-2xl p-8 border border-blue-200 text-center">
-          <p className="text-xl font-semibold text-gray-800 mb-2">The old system falls short. We're the rewrite.</p>
-          <p className="text-lg font-bold text-blue-600">Born in Africa. Built for the world.</p>
-        </div>
+        </Reveal>
 
         {/* How It Works & Key Differentiators */}
-        <div className="mt-20 mb-20">
-          <div className="grid lg:grid-cols-2 gap-12">
-            {/* How It Works */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">HOW IT WORKS</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="text-green-500 font-bold text-2xl mt-1">✔</span>
+        <div className={`${blockSpacing} grid gap-16 lg:grid-cols-2 lg:gap-20`}>
+          {/* How It Works */}
+          <Reveal>
+            <h3 className="font-display text-sm font-bold tracking-[0.2em] text-brand-600">HOW IT WORKS</h3>
+            <ul className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
+              {howItWorks.map((item) => (
+                <li key={item.title} className="flex gap-4 py-6">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-brand-50 text-brand-600">
+                    <Check aria-hidden="true" className="h-3.5 w-3.5" strokeWidth={2.5} />
+                  </span>
                   <div>
-                    <strong className="text-gray-900 text-lg">Tokenized Assets</strong> – Gold, silver, and bonds traded on Stellar SDEX.
+                    <strong className="font-display text-lg font-bold text-navy-900">{item.title}</strong>
+                    <p className="mt-1 leading-relaxed text-slate-600">{item.text}</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-500 font-bold text-2xl mt-1">✔</span>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
+
+          {/* Key Differentiators */}
+          <Reveal delay={0.08}>
+            <h3 className="font-display text-sm font-bold tracking-[0.2em] text-brand-600">KEY DIFFERENTIATORS</h3>
+            <ul className="mt-6 divide-y divide-slate-200 border-y border-slate-200">
+              {differentiators.map((item) => (
+                <li key={item.title} className="flex gap-4 py-6">
+                  <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-gold-400/15 text-gold-600">
+                    <ArrowRight aria-hidden="true" className="h-3.5 w-3.5" strokeWidth={2.5} />
+                  </span>
                   <div>
-                    <strong className="text-gray-900 text-lg">Spendable Yield</strong> – Earn interest on stable stores of value, then pay merchants directly.
+                    <strong className="font-display text-lg font-bold text-navy-900">{item.title}</strong>
+                    <p className="mt-1 leading-relaxed text-slate-600">{item.text}</p>
                   </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-500 font-bold text-2xl mt-1">✔</span>
-                  <div>
-                    <strong className="text-gray-900 text-lg">Community-Powered</strong> – Community Social Banks (CSB's) like SACCOs & Stokvel groups pool funds, lend internally, and keep profits circulating locally.
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-green-500 font-bold text-2xl mt-1">✔</span>
-                  <div>
-                    <strong className="text-gray-900 text-lg">Bank-Integrated</strong> – Seamless on/off ramps via mobile money, bank transfers, and merchant payouts.
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            {/* Key Differentiators */}
-            <div className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200">
-              <h3 className="text-3xl font-bold text-gray-900 mb-6">KEY DIFFERENTIATORS</h3>
-              <div className="space-y-4">
-                <div className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold text-2xl mt-1">→</span>
-                  <div>
-                    <strong className="text-gray-900 text-lg">Not DeFi Speculation</strong> – Backed by auditable real-world assets.
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold text-2xl mt-1">→</span>
-                  <div>
-                    <strong className="text-gray-900 text-lg">Not Extraction</strong> – Profits stay with communities, not platforms.
-                  </div>
-                </div>
-                <div className="flex items-start gap-3">
-                  <span className="text-blue-600 font-bold text-2xl mt-1">→</span>
-                  <div>
-                    <strong className="text-gray-900 text-lg">Not Complex</strong> – Spend gold like cash, with no technical friction.
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                </li>
+              ))}
+            </ul>
+          </Reveal>
         </div>
-      </div>
-      
+      </Container>
+
       {/* Blog Post Modal for "Third Way" */}
-      <BlogPostModal 
+      <BlogPostModal
         post={selectedPost}
         isOpen={isModalOpen}
         onClose={closeModal}
       />
-    </section>
+    </div>
   );
 };
 
