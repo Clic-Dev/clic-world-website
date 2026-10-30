@@ -15,6 +15,12 @@ import useClixPriceDual from '../hooks/useClixPriceDual';
 import bitqueryService from '../services/BitqueryService';
 import DebugInfo from './DebugInfo';
 
+// Height of the fixed header bars (excludes the mobile menu panel)
+const getHeaderOffset = () => {
+  const header = document.querySelector('[data-site-header]');
+  return header ? header.offsetHeight : 100;
+};
+
 const ClicWorldWebsite = () => {
   const [activeSection, setActiveSection] = useState('home');
   const [isScrolling, setIsScrolling] = useState(false);
@@ -81,11 +87,12 @@ const ClicWorldWebsite = () => {
       }
       
       const sections = ['home', 'about', 'clix', 'products', 'clicbrain', 'pryvaz', 'blog', 'projects', 'partners', 'contact'];
+      const probe = getHeaderOffset() + 8;
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+          return rect.top <= probe && rect.bottom >= probe;
         }
         return false;
       });
@@ -111,7 +118,7 @@ const ClicWorldWebsite = () => {
       // Disable scroll detection during programmatic scroll
       setIsScrolling(true);
       
-      const offsetTop = element.offsetTop - 100; // Account for fixed nav
+      const offsetTop = element.offsetTop - getHeaderOffset(); // Account for fixed nav
       console.log(`📜 Starting scroll to position: ${offsetTop}`);
       
       window.scrollTo({
@@ -142,7 +149,7 @@ const ClicWorldWebsite = () => {
       
       <main>
         <section id="home">
-          <HeroSection 
+          <HeroSection
             clixPriceUSD={clixPriceUSD} 
             clixPriceXLM={clixPriceXLM}
             xlmToUSD={xlmToUSD}

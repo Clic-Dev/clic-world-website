@@ -1,0 +1,16 @@
+{
+  "buildCommand": "CI=false npm run build",
+  "outputDirectory": "build",
+  "headers": [
+    {
+      "source": "/.well-known/stellar.toml",
+      "headers": [
+        { "key": "Access-Control-Allow-Origin", "value": "*" },
+        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
+      ]
+    }
+  ],
+  "rewrites": [
+    { "source": "/((?!\\.well-known/|static/|assets/).*)", "destination": "/index.html" }
+  ]
+}

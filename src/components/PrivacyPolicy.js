@@ -11,9 +11,9 @@ const PrivacyPolicy = () => {
           <div className="flex justify-between items-center py-4">
             <Link to="/" className="flex items-center space-x-3 hover:opacity-80 transition-opacity">
               <img 
-                src={`${process.env.PUBLIC_URL}/clic-logo.png`} 
-                alt="Clic.World Logo" 
-                className="w-12 h-12 object-contain"
+                src={`${process.env.PUBLIC_URL}/clic-logo-mark.png`}
+                alt="Clic.World Logo"
+                className="h-8 w-auto"
               />
               <span className="text-gray-900 font-semibold">← Back to Home</span>
             </Link>

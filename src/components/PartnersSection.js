@@ -1,4 +1,6 @@
 import React from 'react';
+import { ArrowUpRight, Check } from 'lucide-react';
+import { Container, Reveal, SectionHeader, sectionPadding } from './ui';
 
 const PartnersSection = () => {
   const partners = [
@@ -67,136 +69,123 @@ const PartnersSection = () => {
     }
   ];
 
+  // Logos have different built-in padding, so each gets a tuned max size
+  const logoSize = {
+    'Yellow Card': 'max-h-9 max-w-32',
+    'ABC Bank': 'max-h-16 max-w-full',
+    'Interswitch Group': 'max-h-12 max-w-full',
+    'Stellar': 'max-h-16 max-w-52',
+    'Anthropic': 'max-h-8 max-w-40',
+    'Pryvaz': 'max-h-9 max-w-32'
+  };
+
+  const principles = [
+    {
+      title: "Regulatory Compliance",
+      text: "Working within established frameworks across multiple African markets"
+    },
+    {
+      title: "Technical Excellence",
+      text: "Combining cutting-edge blockchain technology with proven financial infrastructure"
+    },
+    {
+      title: "Community Impact",
+      text: "Every partnership serves our mission of community-owned financial empowerment"
+    }
+  ];
+
   return (
-    <section id="partners" className="py-8 bg-gray-50">
-      <div className="container mx-auto px-4">
+    <div className="bg-paper">
+      <Container className={sectionPadding}>
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">
-            Strategic Partners
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Building the future of finance through powerful partnerships across Africa and beyond. 
-            Together, we're creating an ecosystem that serves communities, not just corporations.
-          </p>
-        </div>
+        <Reveal>
+          <SectionHeader
+            eyebrow="Partners"
+            title="Strategic Partners"
+            description="Building the future of finance through powerful partnerships across Africa and beyond. Together, we're creating an ecosystem that serves communities, not just corporations."
+          />
+        </Reveal>
 
         {/* Partners Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-3 lg:gap-6">
           {partners.map((partner, index) => (
-            <div 
-              key={index} 
-              className="bg-gray-50 rounded-2xl p-8 hover:bg-gray-100 transition-colors group cursor-pointer"
-              onClick={() => window.open(partner.website, '_blank')}
-            >
-              {/* Logo */}
-              <div className="h-16 mb-6 flex items-center justify-center">
-                {partner.logo ? (
-                  <img 
-                    src={partner.logo} 
+            <Reveal key={partner.name} delay={(index % 3) * 0.06} className="flex">
+              <a
+                href={partner.website}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex w-full flex-col rounded-3xl bg-white p-7 ring-1 ring-slate-200/70 transition hover:-translate-y-0.5 hover:shadow-[0_20px_40px_-24px_rgba(6,15,36,0.35)] hover:ring-slate-300 sm:p-8"
+              >
+                {/* Logo */}
+                <div className="flex h-16 items-center">
+                  <img
+                    src={partner.logo}
                     alt={`${partner.name} logo`}
-                    className={`object-contain ${
-                      partner.name === 'Yellow Card' ? 'max-h-10 max-w-32' : // Smaller for Yellowcard
-                      partner.name === 'ABC Bank' ? 'max-h-20 max-w-full' : // Even bigger for ABC Bank
-                      partner.name === 'Interswitch Group' ? 'max-h-full max-w-full' : // Bigger for Interswitch
-                      partner.name === 'Stellar' ? 'max-h-16 max-w-52' : // Bigger size for Stellar
-                      partner.name === 'Anthropic' ? 'max-h-12 max-w-44' : // Balanced size for Anthropic
-                      partner.name === 'Pryvaz' ? 'max-h-10 max-w-36' : // Even smaller size for Pryvaz
-                      'max-h-12 max-w-40' // Default size for others
-                    }`}
+                    loading="lazy"
+                    className={`object-contain ${logoSize[partner.name] || 'max-h-10 max-w-36'}`}
                   />
-                ) : (
-                  <div className="bg-blue-600 text-white px-4 py-2 rounded-lg font-bold text-lg">
+                </div>
+
+                <div className="mt-6 border-t border-slate-100 pt-6">
+                  {/* Category Badge */}
+                  <span className="text-xs font-semibold uppercase tracking-wider text-brand-600">
+                    {partner.category}
+                  </span>
+
+                  {/* Partner Info */}
+                  <h3 className="mt-2 font-display text-xl font-bold text-navy-900">
                     {partner.name}
-                  </div>
-                )}
-              </div>
+                  </h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                    {partner.description}
+                  </p>
+                </div>
 
-              {/* Category Badge */}
-              <div className="mb-3">
-                <span className="inline-block bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">
-                  {partner.category}
-                </span>
-              </div>
-
-              {/* Partner Info */}
-              <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors">
-                {partner.name}
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-4">
-                {partner.description}
-              </p>
-
-              {/* Visit Link */}
-              <div className="flex items-center text-blue-600 font-semibold group-hover:text-blue-800">
-                <span>Visit Website</span>
-                <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                </svg>
-              </div>
-            </div>
+                {/* Visit Link */}
+                <div className="mt-auto flex items-center gap-1.5 pt-6 text-sm font-semibold text-brand-600 group-hover:text-brand-800">
+                  <span>Visit Website</span>
+                  <ArrowUpRight aria-hidden="true" className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                </div>
+              </a>
+            </Reveal>
           ))}
         </div>
 
         {/* Partnership Philosophy */}
-        <div className="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-8 text-white">
-          <div className="grid lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">Partnership-Driven Innovation</h3>
-              <p className="text-blue-100 leading-relaxed mb-6">
-                We believe the future of finance is collaborative, not competitive. Our strategic partnerships 
-                combine regulatory expertise, technical innovation, and market access to create solutions 
-                that truly serve African communities and the global diaspora.
-              </p>
-              <div className="flex items-center text-yellow-400 font-semibold">
-                <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-                </svg>
-                Building together, growing together
+        <Reveal className="mt-20 lg:mt-24">
+          <div className="relative overflow-hidden rounded-[2rem] bg-navy-900 px-6 py-14 text-white sm:px-12 lg:px-16 lg:py-16">
+            <div aria-hidden="true" className="pointer-events-none absolute -left-24 -top-24 h-80 w-80 rounded-full bg-brand-500/30 blur-3xl" />
+            <div className="relative grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
+              <div>
+                <h3 className="font-display text-2xl font-bold tracking-tight sm:text-3xl">Partnership-Driven Innovation</h3>
+                <p className="mt-5 leading-relaxed text-white/70">
+                  We believe the future of finance is collaborative, not competitive. Our strategic partnerships
+                  combine regulatory expertise, technical innovation, and market access to create solutions
+                  that truly serve African communities and the global diaspora.
+                </p>
+                <p className="mt-6 font-semibold text-gold-400">
+                  Building together, growing together
+                </p>
               </div>
-            </div>
-            
-            <div className="space-y-4">
-              <div className="flex items-start">
-                <div className="bg-yellow-500 rounded-full p-2 mr-4 mt-1">
-                  <svg className="w-4 h-4 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Regulatory Compliance</h4>
-                  <p className="text-blue-100 text-sm">Working within established frameworks across multiple African markets</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="bg-yellow-500 rounded-full p-2 mr-4 mt-1">
-                  <svg className="w-4 h-4 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Technical Excellence</h4>
-                  <p className="text-blue-100 text-sm">Combining cutting-edge blockchain technology with proven financial infrastructure</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start">
-                <div className="bg-yellow-500 rounded-full p-2 mr-4 mt-1">
-                  <svg className="w-4 h-4 text-gray-900" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <h4 className="font-semibold mb-1">Community Impact</h4>
-                  <p className="text-blue-100 text-sm">Every partnership serves our mission of community-owned financial empowerment</p>
-                </div>
-              </div>
+
+              <ul className="space-y-6">
+                {principles.map((item) => (
+                  <li key={item.title} className="flex gap-4">
+                    <span className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-gold-400 text-navy-950">
+                      <Check aria-hidden="true" className="h-4 w-4" strokeWidth={3} />
+                    </span>
+                    <div>
+                      <h4 className="font-semibold">{item.title}</h4>
+                      <p className="mt-1 text-sm leading-relaxed text-white/65">{item.text}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+        </Reveal>
+      </Container>
+    </div>
   );
 };
 
